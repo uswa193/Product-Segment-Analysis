@@ -1,5 +1,5 @@
 # Product-Segment-Analysis
-## 🎯 Objective
+## Objective
 
 This project analyzes four years of sales data (2021–2024) to uncover product performance trends and customer purchase behavior using the FMC model (Frequency, Monetary, and Customer Variety).
 The workflow integrates Python, Excel, and Tableau to perform a complete data analytics cycle:
@@ -10,7 +10,7 @@ Excel → for consolidating yearly results,
 
 Tableau → for interactive trend visualization and insight generation.
 
-## ⚙️ Methodology
+## Methodology
 
 | Stage                           | Tool                             | Purpose                                                            |
 | ------------------------------- | -------------------------------- | ------------------------------------------------------------------ |
@@ -18,7 +18,7 @@ Tableau → for interactive trend visualization and insight generation.
 | **2. Result Aggregation**       | 📊 Microsoft Excel               | Merging all yearly outputs (2021–2024) for trend comparison        |
 | **3. Visualization & Insights** | 📈 Tableau                       | Creating interactive dashboards to analyze multi-year FMC patterns |
 
-## 🧩 FMC Model Components
+## FMC Model Components
 
 | Metric                   | Description                           | Business Meaning                                   |
 | ------------------------ | ------------------------------------- | -------------------------------------------------- |
@@ -26,7 +26,7 @@ Tableau → for interactive trend visualization and insight generation.
 | **Monetary (M)**         | Total revenue generated per product   | Indicates product profitability and sales strength |
 | **Customer Variety (C)** | Count of unique customers per product | Reflects market reach and customer diversity       |
 
-## ⚙️ Python Data Processing
+## Python Data Processing
 
 All four datasets (sales_2021.csv – sales_2024.csv) were processed using the same Python script to ensure consistency.
 
@@ -43,3 +43,13 @@ Normalization & Clustering → scale features and group products using K-Means.
 Evaluation → measure cluster quality using Silhouette Score.
 
 Export Result → save each year’s FMC data as CSV in processed_results/
+
+## Excel Integration
+
+After processing, all yearly FMC CSV files were combined in Excel to create a single dataset for Tableau visualization.
+
+The merged Excel file includes:
+
+| Tahun	Barang	| Frequency |	Monetary	| Customer Variety	| Cluster |
+
+💡 This manual consolidation step ensures full control and validation of data before visualization.

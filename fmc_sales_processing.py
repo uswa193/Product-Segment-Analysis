@@ -88,15 +88,50 @@ from sklearn.cluster import KMeans
 from sklearn.cluster import AgglomerativeClustering
 import matplotlib.pyplot as plt
 
+"""#**Evaluasi Hasil KMeans dengan Silhouete Score**"""
+
+from sklearn.metrics import silhouette_score
+
+k_values = range(2, 10)
+for k in k_values:
+    kmeans = KMeans(n_clusters=k, random_state=42)
+    kmeans.fit(fmc[columns_to_normalize])
+
+    cluster_labels = kmeans.labels_
+
+    # silhouette score
+    silhouette_avg = silhouette_score(fmc[columns_to_normalize], cluster_labels)
+    print("k-clusters={0}, silhouette score = {1}".format(k, silhouette_avg))
+
+# Menerapkan K-Means Clustering untuk k=2
 optimal_k = 2
 kmeans = KMeans(n_clusters=optimal_k, random_state=42)
 kmeans.fit(fmc[columns_to_normalize])
+
+"""#**Evaluasi Hasil AHC dengan Silhouete Score**"""
+
+k_values = range(2, 11)
+
+for num_clusters in k_values:
+    ahc = AgglomerativeClustering(n_clusters=num_clusters)
+    Ahc_labels = ahc.fit_predict(fmc[columns_to_normalize])
+
+    # Calculate and print silhouette score
+    silhouette_avg = silhouette_score(fmc[columns_to_normalize], Ahc_labels)
+    print("k-clusters={0}, silhouette score = {1}".format(num_clusters, silhouette_avg))
+
+optimal_k = 2
 fmc['KMeans_Cluster'] = kmeans.fit_predict(fmc[columns_to_normalize])
 ahc = AgglomerativeClustering(n_clusters=optimal_k)
 fmc['AHC_Cluster'] = ahc.fit_predict(fmc[columns_to_normalize])
 print(fmc)
 print(fmc['KMeans_Cluster'].value_counts())
 print(fmc['AHC_Cluster'].value_counts())
+
+fmc.to_csv('hasil_21 new.csv', index=False)
+from google.colab import files
+files.download('hasil_21 new.csv')
+
 import plotly.express as px
 
 data = pd.DataFrame(fmc, columns=['Frequency', 'Monetary', 'Customer Variety','KMeans_Cluster'])
@@ -160,6 +195,7 @@ plt.show()
 fig = plt.figure(figsize=(15, 13))
 ax = fig.add_subplot(111, projection='3d')
 colors = ['r', 'b', 'y', 'c', 'm']
+
 
 # Menggunakan kolom 'AHC_Cluster' untuk visualisasi cluster
 for cluster_label, color in zip(data['AHC_Cluster'].unique(), colors):

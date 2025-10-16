@@ -1,2 +1,2 @@
 # Product-Segment-Analysis
-This project analyzes merchandise retail sales data using the FMC (Frequency, Monetary, Customer Variety) model to perform product segmentation.
+A data analytics project exploring sales trends from 2021–2024 using FMC segmentation and clustering. Includes yearly experiments (in dev) and consolidated trend insights (in main).

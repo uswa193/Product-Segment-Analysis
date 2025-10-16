@@ -38,7 +38,7 @@ Data Cleaning → remove duplicates, normalize text, handle missing values.
 
 Feature Extraction → calculate Frequency, Monetary, and Customer Variety per product.
 
-Normalization & Clustering → scale features and group products using K-Means.
+Normalization & Clustering → scale features and group products using K-Means ang Agglomerative Hierarchical Clustering
 
 Evaluation → measure cluster quality using Silhouette Score.
 
@@ -50,6 +50,6 @@ After processing, all yearly FMC CSV files were combined in Excel to create a si
 
 The merged Excel file includes:
 
-| Tahun	Barang	| Frequency |	Monetary	| Customer Variety	| Cluster |
+| Tahun	Barang	| Frequency |	Monetary	| Customer Variety	| K-Means Cluster | AHC Cluster |
 
 💡 This manual consolidation step ensures full control and validation of data before visualization.
